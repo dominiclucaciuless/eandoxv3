@@ -1,0 +1,122 @@
+.fieldWrapper {
+  /* Base wrapper styles if any */
+}
+
+.wrapper {
+  /* Base styles for the wrapper */
+}
+
+.input {
+  /* Base input styles */
+  border-radius: var(--mantine-radius-sm); /* Use theme radius */
+  border-color: var(--mantine-color-gray-4); /* Use theme gray */
+  color: var(--mantine-color-gray-8); /* Use theme gray */
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  /* Rely on Mantine's default padding adjusted by left/rightSectionWidth */
+
+  &::placeholder {
+    color: var(--mantine-color-gray-5); /* Use theme gray */
+  }
+
+  &[data-size="lg"] {
+    font-size: var(--mantine-font-size-md); /* Use theme font size */
+    line-height: 1.5;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: calc(2.5rem * var(--mantine-scale));
+  }
+
+  &[data-size="xs"] {
+    font-size: var(--mantine-font-size-xs); /* Use theme font size */
+    line-height: 1.6667;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    height: calc(1.875rem * var(--mantine-scale));
+  }
+
+  &:hover:not([data-disabled]):not([data-error]):not([data-success]):not(:focus) {
+    border-color: var(--mantine-color-eandoBlue-3); /* Use theme eandoBlue */
+    background-color: var(--mantine-color-eandoBlue-0); /* Use theme eandoBlue */
+    /* Apply background only if filled - requires JS or more complex selector */
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--mantine-color-eandoBlue-3) 50%, transparent); /* Use theme eandoBlue */
+    border-color: var(--mantine-color-gray-4); /* Keep default border color on focus per Figma */
+  }
+
+  &[data-error] {
+    border-color: var(--mantine-color-red-5); /* Use theme red */
+    color: var(--mantine-color-red-7); /* Use theme red for filled error */
+    background-color: var(--mantine-color-red-2); /* Use theme red for filled error */
+    /* Apply color/background only if filled - requires JS or complex selector */
+  }
+
+  &[data-success] {
+    border-color: var(--mantine-color-green-6); /* Use theme green */
+    color: var(--mantine-color-gray-8); /* Use theme gray for filled success text */
+    background-color: var(--mantine-color-green-0); /* Use theme green for filled success */
+    /* Apply color/background only if filled - requires JS or complex selector */
+  }
+
+  &[data-disabled] {
+    background-color: var(--mantine-color-gray-2); /* Use theme gray */
+    border-color: var(--mantine-color-gray-4); /* Use theme gray */
+    color: var(--mantine-color-gray-6); /* Use theme gray for filled disabled */
+
+    &::placeholder {
+        color: var(--mantine-color-gray-5); /* Use theme gray */
+    }
+    /* Apply filled color only if filled */
+  }
+}
+
+.section {
+  /* Icon styles */
+  & svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Default icon color */
+  color: var(--mantine-color-gray-8);
+
+  /* Base state colors (will override default) */
+  :where([data-disabled]) & {
+    color: var(--mantine-color-gray-4);
+  }
+  :where([data-error]) & {
+    color: var(--mantine-color-red-7);
+  }
+  :where([data-success]) & {
+    color: var(--mantine-color-green-8);
+  }
+
+  /* Default hover color (applies when wrapper is hovered) */
+  :where(.wrapper:hover) & {
+     color: var(--mantine-color-eandoBlue-6);
+  }
+
+  /* --- Hover Overrides --- */
+  /* Keep disabled color on hover (overrides blue hover) */
+  :where(.wrapper[data-disabled]:hover) & {
+    color: var(--mantine-color-gray-4);
+  }
+  /* Keep error color on hover (overrides blue hover) */
+  :where(.wrapper[data-error]:hover) & {
+    color: var(--mantine-color-red-7);
+  }
+  /* Keep success color on hover (overrides blue hover) */
+  :where(.wrapper[data-success]:hover) & {
+    color: var(--mantine-color-green-8);
+  }
+  /* Prevent focus style interfering with error/success color */
+  :where(.wrapper[data-error]:focus-within) & {
+     color: var(--mantine-color-red-7);
+  }
+  :where(.wrapper[data-success]:focus-within) & {
+     color: var(--mantine-color-green-8);
+  }
+} 

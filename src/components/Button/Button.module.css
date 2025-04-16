@@ -1,0 +1,193 @@
+.buttonBase {
+  height: 34px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif; /* Assuming Inter is loaded */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px; /* approx 1.57 * 14 */
+  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+  border: 1px solid transparent; /* Base border */
+}
+
+.buttonBase:disabled {
+  cursor: not-allowed;
+  box-shadow: none !important; /* Ensure no shadow on disabled */
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.icon svg {
+  vertical-align: middle;
+  display: block; /* Helps prevent extra space around SVG */
+}
+
+/* Primary Variant */
+.primaryDefault {
+  background-color: #222222;
+  border-color: #000000;
+  color: #FFFFFF;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.05),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.05),
+    inset 0px 2px 1px 0px rgba(255, 255, 255, 0.3),
+    inset 0px -4px 2px -2px rgba(0, 0, 0, 1);
+}
+
+.primaryDefault .icon path {
+  stroke: #FFFFFF;
+  stroke-width: 1.5px;
+}
+
+.primaryHover {
+  background-color: #000000;
+  border-color: #000000;
+  color: #FFFFFF;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.05),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.05),
+    0px 8px 8px 0px rgba(0, 0, 0, 0.05); /* No inner shadows on hover */
+}
+
+.primaryHover .icon path {
+  stroke: #FFFFFF;
+   stroke-width: 1.5px;
+}
+
+
+.primaryDisabled {
+  background-color: #767676;
+  border-color: #767676;
+  color: #CBCBCB;
+}
+
+.primaryDisabled .icon path {
+  stroke: #CBCBCB;
+   stroke-width: 1.5px;
+}
+
+/* Secondary Variant */
+.secondaryDefault {
+  background-color: #FFFFFF;
+  border-color: #CBCBCB;
+  color: #222222;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.secondaryDefault .icon path {
+  stroke: #222222;
+   stroke-width: 1.5px;
+}
+
+.secondaryHover {
+  background-color: #F2F8FF;
+  border-color: #78B1FF;
+  color: #222222; /* Text color remains the same on hover for secondary */
+   box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.05),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.05),
+    0px 8px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.secondaryHover .icon path {
+  stroke: #222222;
+   stroke-width: 1.5px;
+}
+
+.secondaryDisabled {
+  background-color: #E8E8E8;
+  border-color: #E8E8E8;
+  color: #A1A1A1;
+}
+
+.secondaryDisabled .icon path {
+  stroke: #A1A1A1;
+   stroke-width: 1.5px;
+}
+
+.secondaryWarning {
+   background-color: #FFDEDE;
+   border-color: #FF6B6B;
+   color: #CE0800;
+   box-shadow:
+     0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+     0px 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.secondaryWarning .icon path {
+    stroke: #CE0800;
+    stroke-width: 1.5px;
+}
+
+/* Apply hover styles using :hover pseudo-class */
+.buttonBase.primaryDefault:hover:not(:disabled) {
+  background-color: #000000;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.05),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.05),
+    0px 8px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.buttonBase.secondaryDefault:hover:not(:disabled) {
+   background-color: #F2F8FF;
+   border-color: #78B1FF;
+   box-shadow:
+     0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+     0px 2px 2px 0px rgba(0, 0, 0, 0.05),
+     0px 4px 4px 0px rgba(0, 0, 0, 0.05),
+     0px 8px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* Apply warning hover styles (assuming similar hover interaction to default secondary) */
+.buttonBase.secondaryWarning:hover:not(:disabled) {
+  /* Define hover style for warning - Figma data didn't specify, using default secondary hover background */
+  background-color: #F2F8FF;
+  /* Keep warning border/text or adjust as needed */
+   border-color: #FF6B6B; /* Keep warning border */
+   color: #CE0800; /* Keep warning text */
+    box-shadow: /* Use stronger hover shadow */
+    0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.05),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.05),
+    0px 8px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* Apply disabled styles using :disabled pseudo-class */
+.buttonBase.primaryDefault:disabled,
+.buttonBase.primaryHover:disabled {
+  background-color: #767676;
+  border-color: #767676;
+  color: #CBCBCB;
+}
+.buttonBase.primaryDefault:disabled .icon path,
+.buttonBase.primaryHover:disabled .icon path {
+  stroke: #CBCBCB;
+}
+
+
+.buttonBase.secondaryDefault:disabled,
+.buttonBase.secondaryHover:disabled,
+.buttonBase.secondaryWarning:disabled {
+  background-color: #E8E8E8;
+  border-color: #E8E8E8;
+  color: #A1A1A1;
+}
+.buttonBase.secondaryDefault:disabled .icon path,
+.buttonBase.secondaryHover:disabled .icon path,
+.buttonBase.secondaryWarning:disabled .icon path {
+  stroke: #A1A1A1;
+} 
