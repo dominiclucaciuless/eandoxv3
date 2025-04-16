@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, Flex, Box, MantineSize } from '@mantine/core';
 // import { IconInfoCircle } from '@tabler/icons-react'; // Placeholder if using Tabler icons
-import InfoCircleIcon from '../../../assets/icons/Label/info-circle.svg?react'; // Correct relative path
+import InfoCircleIcon from "../../assets/icons/Label/info-circle.svg?react"; // Correct relative path
 
 interface LabelProps {
   children: React.ReactNode;
